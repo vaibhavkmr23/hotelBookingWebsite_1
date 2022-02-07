@@ -1,8 +1,19 @@
 body{
+    background-color: #e0e0e0;
+    margin: 0;
     height: 100%;
     width: 100%;
 }
 #main{
+    margin: 0;
     height: 100%;
     width: 100%;
+}
+header,footer{
+   background-color: rosybrown;
+}
+.hotel-container{
+    margin: 2%;
+    background-color: rgb(132, 136, 139);
+    width: 40%;
 }

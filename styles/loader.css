@@ -1,0 +1,11 @@
+div{
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border-width: 12px;
+    border: 12px solid #f3f3f3;
+    border-top-color: #444444 ;
+    margin-top: 20%;
+    margin-bottom: 20%;
+}
