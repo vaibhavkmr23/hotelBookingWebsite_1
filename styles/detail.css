@@ -1,17 +1,3 @@
-body{
-    background-color: #e0e0e0;
-    margin: 0;
-    height: 100%;
-    width: 100%;
-}
-#main{
-    margin: 0;
-    height: 100%;
-    width: 100%;
-}
-header,footer{
-    background-color: rosybrown;
-}
 #radission-container{
     margin: 2% 4% 0% 4%;
 }
@@ -20,4 +6,12 @@ header,footer{
 }
 #hotel-description{
     margin: 1% 4% 2% 4%;
+}
+#radission-img {
+    height: 500px;
+    width: 500px;
+}
+#content{
+    overflow-y: auto;
+    margin-bottom: 60px;
 }

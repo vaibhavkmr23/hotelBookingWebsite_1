@@ -7,55 +7,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <link href="styles/index.css" rel="stylesheet">
-    <style>
-        #logo {
-            height: 60px;
-            width: 60px;
-        }
-
-        .city-img {
-            height: 150px;
-            width: 150px;
-        }
-
-        .footer-img {
-            height: 20px;
-            width: 22px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
 </head>
 
 <body>
     <div id="main">
         <header>
-            <img src="assests\images\logo.png" alt="logo" id="logo">
-            <a href="login.html">Login</a>
+            <div id="header-container">
+                <img src="assests\images\logo.png" alt="logo" id="logo">
+                <div id="login"><a href="login.html">Login</a></div>
+            </div>
         </header>
         <div id="content">
-            <form>
-                <input type="text" name="citysearch" placeholder="City" autocomplete="off">
-            </form>
-            <div id="city">
-                <a href="list.html"><img src="https://media-cdn.tripadvisor.com/media/photo-s/15/33/fe/a2/new-delhi.jpg"
-                        class="city-img" /></a>
-                <img src="https://media-cdn.tripadvisor.com/media/photo-s/15/33/fc/f0/goa.jpg" class="city-img" />
-                <img src="https://media-cdn.tripadvisor.com/media/photo-s/0f/98/f7/df/charminar.jpg" class="city-img" />
-                <img src="https://media-cdn.tripadvisor.com/media/photo-s/15/33/fe/ac/kolkata-calcutta.jpg"
-                    class="city-img" />
+            <div id="form">
+                <form>
+                    <input id="forminput" type="text" name="citysearch" placeholder="City" autocomplete="off">
+                </form>
             </div>
-            <a href="index.html">View more >></a>
+            <div id="city-maindiv">
+                <div id="city">
+                    <a href="list.html"><img
+                            src="https://media-cdn.tripadvisor.com/media/photo-s/15/33/fe/a2/new-delhi.jpg"
+                            class="city-img" /></a>
+                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/15/33/fc/f0/goa.jpg" class="city-img" />
+                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/0f/98/f7/df/charminar.jpg"
+                        class="city-img" />
+                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/15/33/fe/ac/kolkata-calcutta.jpg"
+                        class="city-img" />
+                </div>
+                <a href="index.html">View more >></a>
+            </div>
         </div>
         <footer>
-            <div>
-                <a href="contact.html" target="_self">Contact Us</a><br />
-                <a href="https://www.facebook.com" target="_blank"><img src="assests/images/facebook.png"
-                        class="footer-img"></a>
-                <a href="https://www.instagram.com" target="_blank"><img src="assests/images/instagram.png"
-                        class="footer-img"></a>
-                <a href="https://twitter.com" target="_blank"><img src="assests/images/twitter.png"
-                        class="footer-img"></a>
+            <div id="footer-container">
+                <span class="footer-span" id="footerspan1">
+                    <div><a href="contact.html" target="_self" id="contact">Contact Us</a></div>
+                </span>
+                <div id="socialmedia-logo">
+                    <span class="footer-span" id="footerspan2">
+                        <a href="https://www.facebook.com" target="_blank"><img src="assests/images/facebook.png"
+                                class="footer-img"></a>
+                        <a href="https://www.instagram.com" target="_blank"><img src="assests/images/instagram.png"
+                                class="footer-img"></a>
+                        <a href="https://twitter.com" target="_blank"><img src="assests/images/twitter.png"
+                                class="footer-img"></a>
+                    </span>
+                </div>
+                <div id="copyright"><span class="footer-span" id="footerspan3">&copy; ROOM SEARCH PVT. LTD.</span>
+                </div>
             </div>
-            <div>&copy; ROOM SEARCH PVT. LTD.</div>
         </footer>
     </div>
 </body>

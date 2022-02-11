@@ -7,29 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
     <link rel="stylesheet" href="styles/payment.css">
-    <style>
-        #logo {
-            height: 60px;
-            width: 60px;
-        }
-
-        #radission-img {
-            height: 500px;
-            width: 500px;
-        }
-
-        .footer-img {
-            height: 20px;
-            width: 22px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
+    
 </head>
 
 <body>
     <div id="main">
         <header>
-            <a href="index.html"><img src="assests\images\logo.png" alt="logo" id="logo"></a>
-            <a href="login.html" target="_self">Login</a>
+            <div id="header-container">
+                <a href="index.html"><img src="assests\images\logo.png" alt="logo" id="logo"></a>
+                <div id="login"><a href="login.html" target="_self">Login</a></div>
+            </div>
         </header>
         <div id="content">
             <div id="hotel-detail">
@@ -52,13 +41,23 @@
             <div><a href="payment.html">Pay Now</a></div>
         </div>
         <footer>
-            <a href="contact.html" target="_self">Contact Us</a><br />
-            <a href="https://www.facebook.com" target="_blank"><img src="assests/images/facebook.png"
-                    class="footer-img"></a>
-            <a href="https://www.instagram.com" target="_blank"><img src="assests/images/instagram.png"
-                    class="footer-img"></a>
-            <a href="https://twitter.com" target="_blank"><img src="assests/images/twitter.png" class="footer-img"></a>
-            <div>&copy; ROOM SEARCH PVT. LTD.</div>
+            <div id="footer-container">
+                <span class="footer-span" id="footerspan1">
+                    <div><a href="contact.html" target="_self" id="contact">Contact Us</a></div>
+                </span>
+                <div id="socialmedia-logo">
+                    <span class="footer-span" id="footerspan2">
+                        <a href="https://www.facebook.com" target="_blank"><img src="assests/images/facebook.png"
+                                class="footer-img"></a>
+                        <a href="https://www.instagram.com" target="_blank"><img src="assests/images/instagram.png"
+                                class="footer-img"></a>
+                        <a href="https://twitter.com" target="_blank"><img src="assests/images/twitter.png"
+                                class="footer-img"></a>
+                    </span>
+                </div>
+                <div id="copyright"><span class="footer-span" id="footerspan3">&copy; ROOM SEARCH PVT. LTD.</span>
+                </div>
+            </div>
         </footer>
     </div>
 </body>
