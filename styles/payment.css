@@ -2,24 +2,63 @@
     margin: 0 auto;
     margin-top: 2%;
     margin-bottom: 2%;
-    width: 50%;
-    height: 20%;
-    background-color: rgb(132, 136, 139);  
+    padding-bottom: -1%;
+    background-color: rgb(132, 136, 139); 
+    max-height: 300px;
+    width: 700px;
+    
 }
 #radission-img {
-    height: 500px;
-    width: 500px;
+    max-height: 300px;
+    max-width: 270px;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+    margin-left: -10px;
 }
 #customer-detail{
     margin: 2%;
 }
 #tariff-detail{
-    margin: 2%;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 1% 2%;
+    margin-top: 10%;
+    padding-top: 5%;
 }
 #content{
     overflow-y: auto;
     margin-bottom: 100px;   
+}
+#content{
+    display: flex;
+    flex-direction: column;
+}
+#hotel-detail{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#allDetails{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: rosybrown;
+}
+#tariff-details{
+   display:flex;
+   flex-direction: column;
+   justify-content: space-around;
+}
+#pay{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#hotelDetail{
+    padding-top: 10px;
+}
+.personDetails{
+    font-family: cursive;
 }

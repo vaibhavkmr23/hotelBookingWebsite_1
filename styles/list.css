@@ -1,12 +1,12 @@
 
 .hotel-container{
-    margin: 2%;
-    background-color: rgb(132, 136, 139);
-    width: 40%;
+    margin:2%;
+    background-color: lightgray;
 }
 .hotel-img {
     height: 250px;
     width: 250px;
+    margin-left: 0px;
 }
 #view{
     text-align: center;    
@@ -34,7 +34,6 @@ li{
 #hotel-3{
     width: 35%;
     float: left;
-    clear: none;
 }
 .hotel-container{
     padding: 50px;
@@ -43,8 +42,43 @@ li{
     padding-bottom: 10px;
 }
 #content{
-    overflow-y: auto;
+    overflow:auto;
     margin-bottom: 60px;
 }
+.hotel-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+#list-view{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 150px;
 
-
+}
+#image3{
+    padding: 0px;
+}
+#hotel-1,#hotel-2,#hotel-3{
+    background-color: lightgray;
+    width: 600px;
+    height: 250px;
+    padding: 0px;
+}
+#anchor{
+    display: flex;   
+}
+#detail-1,#detail-2,#detail-3{
+    padding-left: 30%;
+    height: 250px;
+    width: 250px;
+}
+#detail-2,#detail-3,#detail-1{
+    display: flex;
+    flex-direction: column;
+}
+#detail-2,#detail-3{
+    padding-left: 0px;
+}

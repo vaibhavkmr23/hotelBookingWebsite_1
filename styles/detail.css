@@ -8,10 +8,69 @@
     margin: 1% 4% 2% 4%;
 }
 #radission-img {
-    height: 500px;
+    max-height: 350px;
     width: 500px;
+    padding-left: 50%;
 }
 #content{
-    overflow-y: auto;
+    overflow:hidden;
     margin-bottom: 60px;
+}
+#content{
+    display: flex;
+    flex-direction: column;
+}
+#table{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    margin: 2%;
+    max-height: 400px;
+}
+.insideContainer{
+    display: grid;
+    grid-template-columns: 64% 32%;
+    border-right: 1px solid black;
+    justify-content:baseline;
+    grid-column-gap: 600px;
+    align-content: space-between;
+}
+#form{
+    display: flex;
+    flex-direction: row;
+}
+#formInner{
+   margin: 2px 4px 2px 4px;
+   padding: 1px 10px 1px 10px;
+}
+#formInner .form-inn{
+    display: flex;
+    justify-content:space-between;
+    padding: 15px 0;
+}
+.form-inn label{
+    display: flex;
+}
+.form-inn input{
+    display: flex;
+}
+.input{
+    padding-left: 5px;
+}
+input[type=submit]{
+    width: 100px;
+    padding: 10%;
+    margin-bottom: 10%;
+}
+input{
+    width: 300px;
+    margin-left: 5%;
+}
+#bookbutton{
+    margin-left: 27%;
+    margin-right: 10%;
+}
+#head1,#head2,#head3{
+    font-family: cursive;
+    font-weight: bold;
 }

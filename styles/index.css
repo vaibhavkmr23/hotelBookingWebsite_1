@@ -10,16 +10,15 @@ form{
     margin-right: 15%;
 }
 .city-img{
-    padding: 4%;
+    margin: 10px;
     border-radius: 25%;
 }
 .city-img {
     height: 150px;
     width: 150px;
 }
-form{
-    
-    padding-top: 150px ;
+form {
+    padding-top: 300px ;
     padding-bottom: 50px;
     text-align: center;
 }
@@ -27,15 +26,65 @@ form{
     border: 1px solid transparent;
     background-color: #f1f1f1;
     border-radius: 12px;
-    width: 20%;
-    height: 10%;
+    width: 30%;
+    height: 12%;
     padding-left: 10px;
     font-size: 16px;
 }
-#city-maindiv{
-    margin-top: 0px;
-   
+#city-maindiv {
     padding: 100px 10px;
     text-align: center;
     border-top: 5px;
 }
+#content{
+    display: flex;
+    flex-direction: column;
+}
+input:focus{
+    outline: none;
+}
+.city{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+#view-more{
+   display: block;
+   padding-top: 3%;
+}
+.Container-city{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; 
+    position: relative;
+    height: 150px;
+    width: 150px;   
+}
+.city-img{
+    opacity: .9;
+    display: block;
+    width: 100%;
+    backface-visibility: hidden;
+    box-shadow: 10px 10px 10px gray;
+} 
+.middle {
+    opacity: 0;
+    position: absolute;
+    top: 7%;
+    left: 7%;
+    height: 150px;
+    width: 150px;
+    text-align: center;  
+    background-color: rgba(0, 0, 0, .5);  
+    background-size:contain; 
+    border-radius: 25%; 
+}
+.Container-city:hover .middle {
+    opacity: 1;
+    color: #f1f1f1; 
+}
+.cities{
+    margin-top: 43%;
+}
+

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles/detail.css">
     <link rel="stylesheet" href="styles/common.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
-    
+
 </head>
 
 <body>
@@ -21,30 +21,55 @@
             </div>
         </header>
         <div id="content">
-            <div id="radission-container">
-                <img src="https://media-cdn.tripadvisor.com/media/photo-w/17/b3/09/b4/by-the-poolside.jpg"
-                    id="radission-img">
-            </div>
-            <div id="form">
-                <form action="payment.html" method="get">
-                    <label for="adults">Adults:</label>
-                    <input type="number" name="adults" min="1" required value="1" /><br>
-                    <label for="name">Name:</label>
-                    <input type="text" name="name" required autocomplete="off" /><br>
-                    <label for="fromdate">From Date:</label>
-                    <input type="date" name="fromdate" required /><br>
-                    <label for="todate">To Date:</label>
-                    <input type="date" name="todate" required /><br>
-                    <label for="total">Total:</label>
-                    <input type="number" name="total" disabled><br>
-                    <input type="submit" value="Book Now" />
-                </form>
+            <div id="table">
+                <div class="insideContainer">
+                    <div id="radission-container">
+                        <img src="https://media-cdn.tripadvisor.com/media/photo-w/17/b3/09/b4/by-the-poolside.jpg"
+                            id="radission-img">
+                    </div>
+                </div>
+                <div class="insideContainer">
+                    <div id="form">
+                        <div id="formInner">
+                            <form action="payment.html" method="get">
+                                <div class="form-inn">
+                                    <div class="label"><label for="adults">Adults:</label></div>
+                                    <div class="input"><input type="number" name="adults" min="1" required value="1" />
+                                    </div>
+                                </div>
+                                <div class="form-inn">
+                                    <div class="lebel"><label for="name">Name:</label></div>
+                                    <div class="input"><input type="text" name="name" required autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="form-inn">
+                                    <div class="label" id="date1"><label for="fromdate">From Date:</label></div>
+                                    <div class="input"> <input type="date" name="fromdate" required />
+                                    </div>
+                                </div>
+                                <div class="form-inn">
+                                    <div class="label" id="date1"><label for="todate">To Date:</label></div>
+                                    <div class="input"><input type="date" name="todate" required />
+                                    </div>
+                                </div>
+                                <div class="form-inn">
+                                    <div class="label"><label for="total">Total:</label></div>
+                                    <div class="input"><input type="number" name="total" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-inn">
+                                    <div class="input" id="bookbutton"><input type="submit" value="Book Now" /></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="hotel-description">
                 <h2>Radisson Blu Hotel</h2>
-                <P>RATING</P>
+                <P id="head1">RATING</P>
                 <p>5 Star</p>
-                <p>AMENITIES</p>
+                <p id="head2">AMENITIES</p>
                 <ul>
                     <li>Room service</li>
                     <li>Restaurant</li>
@@ -52,7 +77,7 @@
                     <li>Fitness center</li>
                     <li>Pool</li>
                 </ul>
-                <h5>DESCRIPTION</h5>
+                <h5 id="head3">DESCRIPTION</h5>
                 <P>Radisson Blu is an international chain of hotels operated by Radisson Hotels. With roots dating back
                     to
                     the
@@ -67,6 +92,9 @@
                 <span class="footer-span" id="footerspan1">
                     <div><a href="contact.html" target="_self" id="contact">Contact Us</a></div>
                 </span>
+
+                <div id="copyright"><span class="footer-span" id="footerspan3">&copy; ROOM SEARCH PVT. LTD.</span>
+                </div>
                 <div id="socialmedia-logo">
                     <span class="footer-span" id="footerspan2">
                         <a href="https://www.facebook.com" target="_blank"><img src="assests/images/facebook.png"
@@ -76,8 +104,6 @@
                         <a href="https://twitter.com" target="_blank"><img src="assests/images/twitter.png"
                                 class="footer-img"></a>
                     </span>
-                </div>
-                <div id="copyright"><span class="footer-span" id="footerspan3">&copy; ROOM SEARCH PVT. LTD.</span>
                 </div>
             </div>
         </footer>

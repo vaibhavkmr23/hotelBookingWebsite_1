@@ -34,6 +34,18 @@ footer{
     left: 0;
     z-index: 1;
 }
+#header-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    gap: 90%;
+}
+#footer-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
 a{
     color: black;
     text-decoration: none;
@@ -47,21 +59,21 @@ a{
 }
 #logo{
    vertical-align: middle;
+   margin-left: 1%;
 }
 #contact{
     float: left;
-    clear: none;
     height: 60px;
     line-height: 60px;
     vertical-align: middle; 
-    margin-left: 1%;
+    margin-left: 2%;
 }
 #copyright{
     text-align: center;
-    font-size: 10px;
-    padding-top: 50px;
-    margin-bottom: 0px;
-
+    font-size: 11px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
    
 }
 #footerspan2{
