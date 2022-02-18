@@ -8,9 +8,9 @@
     margin: 1% 4% 2% 4%;
 }
 #radission-img {
-    max-height: 350px;
-    width: 500px;
-    padding-left: 50%;
+    height: 350px;
+    width: 600px;
+    padding-left: 30%;
 }
 #content{
     overflow:hidden;
@@ -21,56 +21,59 @@
     flex-direction: column;
 }
 #table{
+    
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     border: 1px solid black;
     margin: 2%;
     max-height: 400px;
-}
-.insideContainer{
-    display: grid;
-    grid-template-columns: 64% 32%;
-    border-right: 1px solid black;
-    justify-content:baseline;
-    grid-column-gap: 600px;
-    align-content: space-between;
+    justify-content: space-between;
 }
 #form{
     display: flex;
+    flex-direction: column;
+    
+    border-left: 1px solid black;
+    
+    padding-top: 10px;
+    height: 400px;
+    padding-left: 1em;
+}
+.form-inn{
+    display: flex;
+    grid-column-gap: 5em;
+    grid-row-gap: 5em;
+    margin: 0em 1em 1.2em 1em;
+    margin-right: 10px;
+}
+.form-inn{
+    display: flex;
     flex-direction: row;
-}
-#formInner{
-   margin: 2px 4px 2px 4px;
-   padding: 1px 10px 1px 10px;
-}
-#formInner .form-inn{
-    display: flex;
-    justify-content:space-between;
-    padding: 15px 0;
-}
-.form-inn label{
-    display: flex;
-}
-.form-inn input{
-    display: flex;
+    justify-content: space-evenly;
 }
 .input{
-    padding-left: 5px;
+    padding-left: 10px;
+    margin-left: 10px;
 }
-input[type=submit]{
-    width: 100px;
-    padding: 10%;
-    margin-bottom: 10%;
-}
-input{
-    width: 300px;
-    margin-left: 5%;
-}
+
 #bookbutton{
-    margin-left: 27%;
-    margin-right: 10%;
+    margin-left: 30%;
+    margin-right: 15%;
 }
 #head1,#head2,#head3{
     font-family: cursive;
     font-weight: bold;
+}
+.input-form{
+    max-width: 250px;
+}
+.date{
+    margin:auto 30px auto 30px ;
+}
+.dateclass{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 50px;
 }
