@@ -62,3 +62,47 @@
 .personDetails{
     font-family: cursive;
 }
+@media only screen and (max-width:576px){
+    #content{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    #hotel-detail{
+        display: flex;
+        flex-direction: column;
+        padding-left: 20%;
+        padding-top: 50%;
+        padding-bottom: 50%;
+        margin-bottom: 50px;   
+    }
+    #customer-detail{
+        display: flex;
+        flex-direction: column;
+        margin-left: 2px;
+        margin-right: 40%;  
+    }
+}
+@media only screen and (min-width:576px) and (max-width:768px){
+    #allDetails{
+        font-weight: 1px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+    }
+}
+@media only screen and (min-width:768px){
+    #allDetails{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:space-evenly;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-left: 2%;
+        margin-right: 2%;
+        background-color: rosybrown;
+    }
+}

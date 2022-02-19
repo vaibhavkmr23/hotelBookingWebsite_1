@@ -63,3 +63,36 @@ li{
     width: 350px;
     background-color: rosybrown;
 }
+.checked,.half{
+    color: orange;
+}
+
+@media only screen and (min-width:576px) and (max-width:768px){
+    #list-view{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+    #hotel-1,#hotel-2,#hotel-3{
+        background-color: lightgray;
+        width: 500px;
+        height: 250px;
+        padding: 0px;
+    }
+    #map-img{
+        width: 100%;
+    }
+}
+@media only screen and (max-width:576px){
+    #list-view{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    #map-img{
+        width: 100%;
+    }
+   
+}
