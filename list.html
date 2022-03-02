@@ -21,13 +21,7 @@
     <!-- Main div starts -->
     <div id="main">
         <!-- Header starts -->
-        <header>
-            <div id="header-container">
-                <a href="index.html"><img src="assests\images\logo.png" alt="logo" id="logo"></a>
-                <div id="login"><a class="btn btn-light btn-sm" id="login-btn" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal-1" target="_self">LOGIN</a></div>
-            </div>
-        </header>
+        
         <!-- Header ends -->
 
         <!-- Content Div starts -->
@@ -126,97 +120,11 @@
         <!-- Content Div ends -->
 
         <!-- Footer starts -->
-        <footer>
-            <div id="footer-container">
-                <span class="footer-span" id="footerspan1">
-                    <div><a class="btn btn-info btn-sm text-white" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal-2" target="_self" id="contact-btn">Contact Us</a></div>
-                </span>
-
-                <div id="copyright"><span class="footer-span" id="footerspan3">&copy; ROOM SEARCH PVT. LTD.</span>
-                </div>
-                <div id="socialmedia-logo">
-                    <span class="footer-span" id="footerspan2">
-                        <a href="https://www.facebook.com" target="_blank"><img src="assests/images/facebook.png"
-                                class="footer-img"></a>
-                        <a href="https://www.instagram.com" target="_blank"><img src="assests/images/instagram.png"
-                                class="footer-img"></a>
-                        <a href="https://twitter.com" target="_blank"><img src="assests/images/twitter.png"
-                                class="footer-img"></a>
-                    </span>
-                </div>
-            </div>
-        </footer>
+       
         <!-- Footer ends -->
     </div>
 
-    <!-- Modal-1 starts-->
-    <form action="index.html" method="get">
-        <div class="modal fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-
-            <div class="modal-dialog">
-
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Please Login</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" id="modal-body-1">
-
-                        <label for="username">Username:</label>
-                        <input type="text" name="username" placeholder="Enter Username" required><br>
-                        <label for="password">Password:</label>
-                        <input type="password" name="password" placeholder="Enter Password" autocomplete="off"
-                            required><br>
-
-                    </div>
-                    <div class="modal-footer">
-                        <div class="submit-button">
-                            <input type="submit" id="submit-btn-modal-1" class="btn btn-primary" value="Login">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </form>
-    <!-- Modal-1 ends-->
-
-    <!-- Modal-2 starts-->
-    <form action="index.html" method="get">
-        <div class="modal fade" id="exampleModal-2" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-
-            <div class="modal-dialog">
-
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Get in touch</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" id="modal-2">
-                        <div>
-                            <span id="p1">Thank you for reaching out!!!</span><br>
-                            <span id="p2">Please enter you email and we get back to you.</span><br><br>
-                        </div>
-                        <div>
-                            <label for="email">Email:</label>
-                            <input type="email" name="email" placeholder="Enter your email" required
-                                autocomplete="off" /><br />
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="submit-button">
-                            <input type="submit" id="submitbtn" class="btn btn-primary" value="submit">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </form>
-    <!-- Modal-2 ends-->
+    <script src="scripts/common.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
