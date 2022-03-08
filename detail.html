@@ -21,78 +21,76 @@
     <!-- Main div starts -->
     <div id="main">
         <!-- Header starts -->
-       
+        <header>
+
+        </header>
+
         <!-- Header ends -->
 
         <!-- Content div starts -->
         <div id="content">
             <div id="table">
                 <div id="radission-container">
-                    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="">
-                                <img src="https://media-cdn.tripadvisor.com/media/photo-w/17/b3/09/b4/by-the-poolside.jpg" class="align-items-center reSize"
-                                    width="600px" height="350px" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="">
-                                <img src="https://media-cdn.tripadvisor.com/media/photo-o/01/fa/51/70/r-the-spa.jpg" class="align-items-center reSize"
-                                    width="600px" height="350px" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://media-cdn.tripadvisor.com/media/photo-w/0e/b2/64/3f/radisson-blu-plaza-delhi.jpg" class="align-items-center reSize"
-                                    width="600px" height="350px" class="d-block w-100" alt="...">
-                            </div>
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" id="carouselDiv">
+                            <!--Populated with AJAX call-->
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
                             data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="carousel-control-prev-icon icon-rosybrown" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
                             data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="carousel-control-next-icon icon-rosybrown" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
-
                 </div>
+
                 <!-- <div id="form"> -->
                 <!-- <div id="formInner"> -->
                 <form action="payment.html" method="get" id="bookingForm">
                     <div class="form-inn">
                         <div class="label"><label for="adults">Adults:</label></div>
-                        <div class="input"><input id="NoOfAdults" class="input-form" type="number" name="adults" min="1" required onchange="totalFunc()"
-                                value="1" />
+                        <div class="input"><input id="NoOfAdults" class="input-form" type="number" name="adults" min="1"
+                                required oninput="totalFunc()" value="1" />
                         </div>
                     </div>
                     <div class="form-inn">
                         <div class="lebel"><label for="name">Name:</label></div>
-                        <div class="input"><input class="input-form" type="text" name="name" required
+                        <div class="input"><input class="input-form" type="text" id="name" name="name" required
                                 autocomplete="off" />
                         </div>
                     </div>
                     <div class="form-inn">
                         <!-- <div class="dateclass"> -->
-                            <div class="label" ><label for="fromdate">From Date:</label></div>
-                            <div class="input"> <input id="fromDate" max="" class="input-form" type="date" name="fromdate" required onchange="totalFunc()" />
-                            </div>
+                        <div class="label"><label for="fromdate">From Date:</label></div>
+                        <div class="input"> <input id="fromDate" max="" class="input-form" type="date" name="fromdate"
+                                required oninput="totalFunc()" />
+                        </div>
                         <!-- </div> -->
                     </div>
                     <div class="form-inn">
                         <!-- <div class="dateclass"> -->
-                            <div class="label" ><label for="todate">To Date:</label></div>
-                            <div class="input"><input class="input-form" id="toDate" min="" type="date" name="todate" required onchange="totalFunc()"  />
-                            </div>
+                        <div class="label"><label for="todate">To Date:</label></div>
+                        <div class="input"><input class="input-form" id="toDate" min="" type="date" name="todate"
+                                required oninput="totalFunc()" />
+                        </div>
                         <!-- </div> -->
                     </div>
                     <div class="form-inn">
                         <div class="label"><label for="total">Total:</label></div>
-                        <div class="input"><input id="result" class="input-form" type="number" name="total" readonly>
+                        <div class="input"><input id="result" class="input-form" type="text" name="total" readonly>
+
+
+                            <div class="input"><input type="hidden" name="id" id="id"></div>
                         </div>
+
                     </div>
                     <div id="submitButton">
                         <!-- <div class="input" id="bookbutton"> -->
-                            <input class="btn btn-outline-success" type="submit" value="Book Now" id="bookButton" />
+                        <input class="btn btn-outline-success" type="submit" value="Book Now" id="bookButton" />
                         <!-- </div> -->
                     </div>
                 </form>
@@ -101,64 +99,56 @@
 
             </div>
             <div id="hotel-description">
-                <h2>Radisson Blu Hotel</h2>
+                <h2 id="hotelName"></h2>
                 <P id="head1">RATING</P>
                 <div id="star">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
+
                 </div>
                 <!-- <p>5 Star</p> -->
                 <p id="head2">AMENITIES</p>
-                <ul>
-                    <li>Room service</li>
-                    <li>Restaurant</li>
-                    <li>Business center</li>
-                    <li>Fitness center</li>
-                    <li>Pool</li>
+                <ul id="hotelAmenities">
+
                 </ul>
                 <h5 id="head3">DESCRIPTION</h5>
-                <P>Radisson Blu is an international chain of hotels operated by Radisson Hotels. With roots dating back
-                    to
-                    the
-                    1960s, the Radisson Blu brand name came into existence in 2009 with a rebranding from Radisson SAS.
-                    Its
-                    hotels are found in major cities, key airport gateways and leisure destinations.</P>
+                <P id="hotelDescription">
+
+                </P>
             </div>
 
         </div>
         <!-- Content div ends -->
 
         <!-- Footer starts -->
-        
+        <footer>
+
+        </footer>
+
         <!-- Footer ends -->
     </div>
     <!-- Main div ends -->
 
     <script src="scripts/common.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript">
-    var fromDate;
-    $('#fromDate').on('change', function(){
-        fromDate = $(this).val();
-        $('#toDate').prop('min',function(){
-            return fromDate;
-        })
-    });
-    var toDate;
-    $('#toDate').on('change', function(){
-        toDate = $(this).val();
-        $('#fromDate').prop('max',function(){
-            return toDate;
-        })
-    });
+    <!-- <script type="text/javascript">
+        var fromDate;
+        $('#fromDate').on('change', function () {
+            fromDate = $(this).val();
+            $('#toDate').prop('min', function () {
+                return fromDate;
+            })
+        });
+        var toDate;
+        $('#toDate').on('change', function () {
+            toDate = $(this).val();
+            $('#fromDate').prop('max', function () {
+                return toDate;
+            })
+        });
 
-    </script>
-   
+    </script> -->
+
     <script src="scripts/detail.js"></script>
-   
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>

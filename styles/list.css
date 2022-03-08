@@ -2,11 +2,12 @@
 .hotel-container{
     margin:2%;
     background-color: lightgray;
+    width: 600px;
 }
 .hotel-img {
     height: 250px;
     width: 250px;
-    margin-left: 0px;
+  
 }
 ul{
     display: inline;
@@ -17,23 +18,14 @@ li{
     padding-left: 40px;
     padding-top: 40px;
 }
-#hotel-1{
-    width: 35%;
-    float: left;
-}
-#hotel-2{
-    width: 35%;
-    float: right;    
-}
-#hotel-3{
-    width: 35%;
-    float: left;
-}
-.hotel-container{
-    padding: 50px;
-}
+
 #list-view{
-    padding-bottom: 10px;
+   
+    padding: 10px 2px 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
 }
 #content{
     overflow:auto;
@@ -43,21 +35,8 @@ li{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-}
-#image3{
-    padding: 0px;
-}
-#hotel-1,#hotel-2,#hotel-3{
-    background-color: lightgray;
-    width: 600px;
-    height: 250px;
-    padding: 0px;
-}
-#anchor{
-    display: flex;   
-}
-#detail-2,#detail-3,#detail-1{
-    padding-left: 10px;
+    margin-top: 20px;
+    margin: 40px;
 }
 .hotel-container:hover div{
     width: 350px;
