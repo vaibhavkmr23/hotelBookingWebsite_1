@@ -1,87 +1,20 @@
 
-// function totalFunc() {
-//     var refToResultDiv = document.getElementById("result");
-//     var refToNoOfAdult = document.getElementById("NoOfAdults").value;
-//     var d2 = document.getElementById("toDate").value;
-//     var d1 = document.getElementById("fromDate").value;
-//     // var idReference = document.getElementById("id").value;
-
-//     const dateOne = new Date(d1);
-//     const dateTwo = new Date(d2);
-//     const time = Math.abs(dateTwo - dateOne);
-//     const days = Math.ceil(time / (1000 * 60 * 60 * 24));
-//     var result = days * parseInt(refToNoOfAdult) * 1000;
-//     refToResultDiv.value = result;
-// }
-
- // Calculating price after this
-
-
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth() + 1; //January is taken 0!
-var yyyy = today.getFullYear();
-
-if (dd < 10) {
-   dd = '0' + dd;
-}
-
-if (mm < 10) {
-   mm = '0' + mm;
-} 
-    
-today = yyyy + '-' + mm + '-' + dd;
-//setting min date to current date
-document.querySelector("#fromDate").setAttribute("min",today);
-function totalFunc() {
-    let bookingName = document.getElementById("name").value;
-    let noOfAdults = document.getElementById("NoOfAdults").value;
-    let refToFrom = document.getElementById("fromDate");
-    let fromDate = new Date(refToFrom.value);
-    //invisible number box to send id value to next page
-    let refToId = document.getElementById("id");
-    refToId.value = id;
-
-
-    var fd = fromDate.getDate() + 1;//refers to next day
-    var fm = fromDate.getMonth() + 1;//January is 0
-    var fy = fromDate.getFullYear();
-    if (fd < 10) {
-        fd = '0' + fd;
-     }
-     
-     if (mm < 10) {
-        fm = '0' + fm;
-     } 
-     minDate = fy + '-' + fm + '-' + fd;
-     document.querySelector("#toDate").setAttribute("min",minDate);//setting attribute of checkout date to min one day after checkin date
-    let refToToDate = document.getElementById("toDate");
-    let toDate = new Date(refToToDate.value);
-    let refToTotal = document.getElementById("result");
-    let diffInTime = toDate.getTime() - fromDate.getTime();
-    let totalPrice= noOfAdults*1000*diffInTime/(1000 * 3600 * 24);//(converting time from seconds to days)
-    if(totalPrice > 0){
-        refToTotal.value = 'Rs. '+ totalPrice;
-    }
-}
-
-
-
-// API usage
+// API usage for Hotel details
 
 
 const url = window.location.search;
 const urlParams = new URLSearchParams(url);
 const id = urlParams.get("id");
-const key = "c45f413bedmsh85e0e65f3d3beb8p11aa3cjsna4a73ac771d5";
-getHotelDetails = () => {//to get hotel details
+const key = "1b5b48bbe7msha7b26d5c204e440p1fafe5jsn518136d4f29d";
+getHotelDetailsFromApi = () => {//to get hotel details
     const xhr = new XMLHttpRequest();
     const apiURL = `https://travel-advisor.p.rapidapi.com/hotels/get-details?location_id=${id}&checkin=2022-03-15&adults=1&lang=en_US&currency=USD&nights=2`;
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var jsonData = JSON.parse(this.responseText);
-            //   console.log(jsonData.data);
-            parseHotelDetails(jsonData.data);
+            
+            parseHotelDetailData(jsonData.data);
+                
         }
     };
     xhr.open("GET", apiURL);
@@ -89,30 +22,33 @@ getHotelDetails = () => {//to get hotel details
     xhr.setRequestHeader("x-rapidapi-key", key);
     xhr.send();
 }
-getHotelImages = () => {
+getHotelImagesFromApi = () => {
     const xhr = new XMLHttpRequest();
     const apiURL = `https://travel-advisor.p.rapidapi.com/photos/list?location_id=${id}&currency=USD&limit=50&lang=en_US`;
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var jsonData = JSON.parse(this.responseText);
-            //   console.log(jsonData.data);
-            parseHotelImages(jsonData.data);
+            
+            parseHotelImagesData(jsonData.data);
+            disableLoader();//disabling loader
         }
+        
     };
     xhr.open("GET", apiURL);
     xhr.setRequestHeader("x-rapidapi-host", "travel-advisor.p.rapidapi.com");
     xhr.setRequestHeader("x-rapidapi-key", key);
     xhr.send();
 }
-getHotelDetails();
-getHotelImages();
+getHotelDetailsFromApi();
+getHotelImagesFromApi();
 
-parseHotelImages = data => {
-    let carouselContent = "";
+
+parseHotelImagesData = data => {
+    let carouselContentDiv = "";
     let isActive = "active";
     getImages = (item) => {
         const image = item.images.large.url;
-        carouselContent = carouselContent + `
+        carouselContentDiv = carouselContentDiv + `
       <div class="carousel-item ${isActive}">
         <img
           src=${image}
@@ -125,16 +61,16 @@ parseHotelImages = data => {
     data.forEach(getImages);
 
     const refToCarousel = document.getElementById("carouselDiv");
-    refToCarousel.innerHTML = carouselContent;
+    refToCarousel.innerHTML = carouselContentDiv;
 }
 
-parseHotelDetails = (data) => {
+parseHotelDetailData = (data) => {
     const name = data[0].name;
     const rating = data[0].rating;
     const description = data[0].description;
     const amenities = data[0].amenities;
 
-    printRating(rating);
+    printHotelRatings(rating);
     const refToHotelName = document.getElementById("hotelName");
     refToHotelName.innerHTML = name;
     const refToAmenities = document.getElementById("hotelAmenities");
@@ -151,17 +87,17 @@ parseHotelDetails = (data) => {
     refToDescription.innerHTML = description;
 }
 
-printRating = (rating) => {
+printHotelRatings = (rating) => {
     let ratingNum = parseInt(rating);
     let ratingString = "";
     let i = 0;
-    // var isPositive = true;
+   
     const refToRating = document.getElementById("star");
     for (i = 0; i < ratingNum; i++) {
         ratingString = ratingString + `<span class="fa fa-star checked"></span>`;
     }
     if (rating.length > 1 && rating[2] != "0") {
-        // isPositive = false;
+        
         ratingString = ratingString + `<span class="fa-solid fa-star-half-stroke fill"></span>`;
         i++;
     }
@@ -170,3 +106,57 @@ printRating = (rating) => {
     }
     refToRating.innerHTML = ratingString;
 }
+
+//---------------------------------------------------------//
+
+//setting date pattern
+var todayDate = new Date();
+var dd1 = todayDate.getDate();
+var mm1 = todayDate.getMonth() + 1; //January is taken 0//
+var yy1 = todayDate.getFullYear();
+
+// setting single digit day and month to two digits
+if (dd1 < 10) {
+  dd1 = '0' +dd1;
+}
+
+if (mm1 < 10) {
+   mm1 = '0' + mm1;
+} 
+    
+todayDate = yy1 + '-' + mm1 + '-' +dd1;
+//setting min date to current date
+document.querySelector("#fromDate").setAttribute("min",todayDate);
+function totalFunc() {
+    let bookingName = document.getElementById("name").value;
+    let noOfAdults = document.getElementById("NoOfAdults").value;
+    let refToFrom = document.getElementById("fromDate");
+    let fromDate = new Date(refToFrom.value);
+    
+    let refToId = document.getElementById("id");
+    refToId.value = id;
+    var ddf = fromDate.getDate() + 1;//refers to next day//
+    var mmf = fromDate.getMonth() + 1;//January is 0//
+    var yyf = fromDate.getFullYear();
+    if (ddf < 10) {
+        ddf = '0' + ddf;
+     }
+     
+     if (mm1 < 10) {
+        mmf = '0' + mmf;
+     } 
+     minDate = yyf + '-' + mmf + '-' + ddf;
+     document.querySelector("#toDate").setAttribute("min",minDate);//set min date//
+     
+     // price calculation
+    let refToToDate = document.getElementById("toDate");
+    let toDate = new Date(refToToDate.value);
+    let refToTotal = document.getElementById("result");
+    let diffInTime = toDate.getTime() - fromDate.getTime();
+    let totalPrice= noOfAdults*1000*diffInTime/(1000 * 3600 * 24);
+    if(totalPrice > 0){
+        refToTotal.value = 'Rs. '+ totalPrice;
+    }
+}
+
+

@@ -1,63 +1,105 @@
-const urlParams = new URLSearchParams(window.location.search);
-const hotelId = urlParams.get("city");
 
-// var refToListView = document.getElementById("list-view");
+// API calls for List view and Map view starts
 
-let inList = hotelList =>{
-    var refToListView = document.getElementById("list-view");
-    hotelList.forEach(hotel => {
-        let hotelLink = document.createElement("a");
-        hotelLink.setAttribute("href",`detail.html?id=` +hotel.result_object.location_id);
-        hotelLink.setAttribute("style","text-decoration: none; color: black;");
-        
-        // hotelLink = `<a href="detail.html" id="anchor" style="text-decoration: none; color: black;">`;
-        refToListView.appendChild(hotelLink);
-        let hotelContainerDiv = document.createElement("div");
-        hotelContainerDiv.setAttribute("class","hotel-container");
-        hotelLink.appendChild(hotelContainerDiv);
-        // let hotelImg =`<img src= + ${hotel.result_object.photo.images.medium.url} alt=""  ${hotel.result_object.name} class ="hotel-img"/>`;
-        let hotelImg = `<img src=" ${hotel.result_object.photo.images.medium.url}"  class="hotel-img" />`;
-        hotelContainerDiv.innerHTML = hotelImg;
-        debugger;
-        let hotelDetailDiv = document.createElement("div");
-        hotelDetailDiv.setAttribute("class","description-container");
-        hotelContainerDiv.appendChild(hotelDetailDiv);
-        // let hotelName = hotel.result_object.name;
-        hotelDetailDiv.innerHTML = `<h4> ${hotel.result_object.name} <h4>`;
-        hotelDetailDiv.innerHTML = hotelDetailDiv.innerHTML + `<div> ${hotel.result_object.rating} <span class="fa fa-star checked"></span></div>`;
-        hotelDetailDiv.innerHTML = hotelDetailDiv.innerHTML +  "<p>" + hotel.result_object.address +"</p>";
-        // debugger;
-    
-    })  
+
+const url = window.location.search;
+const urlParams = new URLSearchParams(url);
+const city = urlParams.get("city");
+const apiURL = `https://travel-advisor.p.rapidapi.com/locations/search?query=${city}&limit=30&offset=0&units=km&location_id=1&currency=USD&sort=relevance&lang=en_US`;
+const key = "1b5b48bbe7msha7b26d5c204e440p1fafe5jsn518136d4f29d";
+const xhr = new XMLHttpRequest();
+let mapDetails = [{ lat: 0.0, lng: 0.0 }];
+xhr.onreadystatechange = function () {
+  if (xhr.readyState == 4 && xhr.status == 200) {
+    var jsonData = JSON.parse(this.responseText);
+    getListView(jsonData.data);
+   
+    initMap();
+    // debugger;
+    disableLoader();// disabling loader
+  }
 };
-let fetchHotelList = () => {
-    const data = null;
 
-    const xhr = new XMLHttpRequest();
-    xhr.withCredentials = false;
+xhr.open("GET",apiURL);
+xhr.setRequestHeader("x-rapidapi-host", "travel-advisor.p.rapidapi.com");
+xhr.setRequestHeader("x-rapidapi-key" , key);
+xhr.send();
 
-    xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === this.DONE) {
-            // console.log(this.responseText);
-            // debugger;
-            let responseFromServerInStringFormat = xhr.responseText;
-            let jsonData = JSON.parse(responseFromServerInStringFormat).data;
-            hotelList = jsonData.filter(item => item.result_type == "lodging");
-            // var hotelLocations = [];
-            // hotelList.forEach(item => {
-            //     hotelLocations.push([item.result_object.name + "<br><a href=\detail.html?id =" + item.result_object.location_id + "\">Book Hotel</a>",item.result_object.latitude,item.result_object.longitude]);
-                
-            // });
-            inList(hotelList);
-        
-        }
+
+// Setting data for list view
+
+let getListView = (data) => {
+  let name, img, address, locationId, rating;
+  let hotel ="";
+  mapDetails = [];
+  const DataToPopulate = (item) => {
+    if (item.result_type == "lodging") {
+      name = item.result_object.name;
+      img = item.result_object.photo.images.large.url;
+      address = item.result_object.address;
+      locationId = item.result_object.location_id;
+      rating = item.result_object.rating;
+      mapDetails.push({
+        lat: parseFloat(item.result_object.latitude),
+        lng: parseFloat(item.result_object.longitude),
+        locationId: locationId,
+        name: name,
+        address: address,
+      });
+      hotel = hotel + `
+        <a href="detail.html?id=${locationId}" style="text-decoration: none; color: black;">
+            <div class="hotel-container" id="hotel-1">
+            <img src="${img}" alt="${name}"class="hotel-img" />
+
+            <div class="description-container">
+                <div id="detail-1">
+
+                    <h3>${name}</h3>
+                    <p>${rating}<span class="fa fa-star checked"></span></p>
+                    <p>${address}</p>
+
+                </div>
+            </div>
+        </div>
+    </a>`;
+    }
+  };
+
+  data.forEach(DataToPopulate);//populate data
+
+  let listView = document.getElementById("list-view");
+  listView.innerHTML = hotel;
+};
+
+// Setting data for map view 
+
+initMap = () => {
+    var options = {
+        center: { lat: mapDetails[0].lat, lng: mapDetails[0].lng },
+        zoom: 8,
+    };
+    var map = new google.maps.Map(document.getElementById("map-view"), options);
+
+  // adding markers
+  for (let i = 0; i < mapDetails.length; i++) {
+      addMarker(mapDetails[i]);
+  }
+
+  function addMarker(data) {
+      let marker = new google.maps.Marker({
+          position: { lat: data.lat, lng: data.lng },
+          map: map,
+    });
+    //adding info window with markers
+    let infoWindow = new google.maps.InfoWindow({
+        content: `<p>${data.name}</p>
+                <a href="detail.html?id=${data.locationId} " class="mapDetail" style=" color: black;">Book Now</a>`,
     });
 
-    xhr.open("GET", "https://travel-advisor.p.rapidapi.com/locations/search?query=" + hotelId);
-    xhr.setRequestHeader("x-rapidapi-host", "travel-advisor.p.rapidapi.com");
-    xhr.setRequestHeader("x-rapidapi-key", "c45f413bedmsh85e0e65f3d3beb8p11aa3cjsna4a73ac771d5");
-
-    xhr.send();
-
+    marker.addListener("click", function () {
+        infoWindow.open(map, marker);
+    });
+  }
 }
-fetchHotelList();
+
+// API calls for List view and Map view ends

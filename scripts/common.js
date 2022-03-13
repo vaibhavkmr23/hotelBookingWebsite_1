@@ -1,4 +1,20 @@
 
+//Loader enabling and disabling function for all pages
+
+let disableLoader = () =>{
+  document.getElementById("loader").style.display="none";
+  
+}
+
+let enableLoader = () =>{
+  
+  document.getElementById("loader").style.display="block"; 
+}
+
+//-----------------------------//
+
+// Templating Header
+
 if(localStorage.isLogin === "false" || localStorage.isLogin == null) {
   var headerTemplate = `<div id="header-container">
                     <a href="index.html"><img src="assests/images/logo.png" alt="logo" id="logo"/></a>
@@ -17,6 +33,9 @@ else {
                 </div>
                 </div>`;
 }
+
+
+// Templating footer
 let footerTemplate = `<div id="footer-container">
                 <span class="footer-span" id="footerspan1">
                 <div id="contact-div"><a class="btn btn-info btn-sm text-white" data-bs-toggle="modal"
@@ -114,10 +133,16 @@ document.querySelector("#login-btn").addEventListener("click", function(){
     localStorage.isLogin = false;
     document.querySelector("#login-btn").textContent="LOGIN";
     document.getElementById("login-btn").setAttribute("data-bs-toggle","modal");
-    pay();
+    payFunc();
   }
 })
   
+
+enableLoader();// enabling loader
+
+//--------------------------------//
+
+// setting local storage and checking conditions for login
 function login(){
   if(localStorage.isLogin === "false" || localStorage.isLogin == null){
     var username = document.querySelector("#username").value;
@@ -131,10 +156,11 @@ function login(){
       document.querySelector("#loginModalClose").click();
       document.querySelector("#login-btn").dataset.toggle = "modal";
       document.getElementById("login-btn").removeAttribute("data-bs-toggle");
-      pay();
+      payFunc();
     }
     else {
       alert('Username/Password is incorrect. Please try again!')
     }
   }
 }
+
